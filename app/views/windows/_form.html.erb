@@ -1,17 +1,10 @@
-<%= form_for(@window) do |f| %>
-  <% if @window.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@window.errors.count, "error") %> prohibited this window from being saved:</h2>
+<%= form_for @window, :html => { :class => 'form-horizontal form-model' } do |f| %>
 
-      <ul>
-      <% @window.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+  <div class="form-group">
+    <div class='col-md-offset-2 col-md-10'>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                  windows_path, :class => 'btn btn-default' %>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= f.submit %>
   </div>
 <% end %>
