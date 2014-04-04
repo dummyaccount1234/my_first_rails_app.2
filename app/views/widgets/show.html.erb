@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @widget.user %>
+</p>
+
+<p>
+  <strong>Color:</strong>
+  <%= @widget.color %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @widget.price %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @widget.active %>
+</p>
+
+<p>
+  <strong>Combo pack:</strong>
+  <%= @widget.combo_pack %>
+</p>
+
+<%= link_to 'Edit', edit_widget_path(@widget) %> |
+<%= link_to 'Back', widgets_path %>
