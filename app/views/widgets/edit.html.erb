@@ -1,6 +1,5 @@
-<h1>Editing widget</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @widget %> |
-<%= link_to 'Back', widgets_path %>
+<%- model_class = Widget -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => Widget %></h1>
+</div>
+<%= render :partial => 'form' %>

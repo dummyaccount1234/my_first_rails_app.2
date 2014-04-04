@@ -1,35 +1,38 @@
-<h1>Listing widgets</h1>
-
-<table>
+<%- model_class = Widget -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Widget %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>User</th>
-      <th>Color</th>
-      <th>Price</th>
-      <th>Active</th>
-      <th>Combo pack</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:price) %></th>
+      <th><%= model_class.human_attribute_name(:active) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @widgets.each do |widget| %>
       <tr>
-        <td><%= widget.user %></td>
-        <td><%= widget.color %></td>
+        <td><%= widget.id %></td>
         <td><%= widget.price %></td>
         <td><%= widget.active %></td>
-        <td><%= widget.combo_pack %></td>
-        <td><%= link_to 'Show', widget %></td>
-        <td><%= link_to 'Edit', edit_widget_path(widget) %></td>
-        <td><%= link_to 'Destroy', widget, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l widget.created_at, format: :long %></td>
+        <td>
+          <%= link_to widget_path(widget), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to widget_path(widget), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Widget', new_widget_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_widget_path,
+            :class => 'btn btn-primary' %>
