@@ -1,0 +1,21 @@
+<%= form_for(@combo_pack) do |f| %>
+  <% if @combo_pack.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@combo_pack.errors.count, "error") %> prohibited this combo_pack from being saved:</h2>
+
+      <ul>
+      <% @combo_pack.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.text_field :user_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

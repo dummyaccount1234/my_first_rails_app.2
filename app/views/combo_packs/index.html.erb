@@ -1,0 +1,27 @@
+<h1>Listing combo_packs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @combo_packs.each do |combo_pack| %>
+      <tr>
+        <td><%= combo_pack.user %></td>
+        <td><%= link_to 'Show', combo_pack %></td>
+        <td><%= link_to 'Edit', edit_combo_pack_path(combo_pack) %></td>
+        <td><%= link_to 'Destroy', combo_pack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Combo pack', new_combo_pack_path %>
