@@ -1,5 +1,11 @@
 MyFirstRailsApp::Application.routes.draw do
-  resources :combo_packs
+  resources :combo_packs do
+  #->Prelang (voting/acts_as_votable)
+  member do
+    get "vote"
+  end
+end
+
 
   resources :widgets do
   #->Prelang (voting/acts_as_votable)
