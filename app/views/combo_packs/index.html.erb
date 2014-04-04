@@ -1,27 +1,34 @@
-<h1>Listing combo_packs</h1>
-
-<table>
+<%- model_class = ComboPack -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => ComboPack %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>User</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @combo_packs.each do |combo_pack| %>
       <tr>
-        <td><%= combo_pack.user %></td>
-        <td><%= link_to 'Show', combo_pack %></td>
-        <td><%= link_to 'Edit', edit_combo_pack_path(combo_pack) %></td>
-        <td><%= link_to 'Destroy', combo_pack, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= combo_pack.id %></td>
+        <td><%=l combo_pack.created_at, format: :long %></td>
+        <td>
+          <%= link_to combo_pack_path(combo_pack), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to combo_pack_path(combo_pack), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Combo pack', new_combo_pack_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_combo_pack_path,
+            :class => 'btn btn-primary' %>
