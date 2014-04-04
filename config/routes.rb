@@ -1,4 +1,5 @@
 MyFirstRailsApp::Application.routes.draw do
+  get "landings/index"
   resources :colors
 
   resources :cars do
