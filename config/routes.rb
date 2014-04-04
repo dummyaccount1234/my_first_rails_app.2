@@ -1,4 +1,6 @@
 MyFirstRailsApp::Application.routes.draw do
+  resources :wheels
+
   resources :windows do
   #->Prelang (voting/acts_as_votable)
   member do

@@ -1,0 +1,27 @@
+<h1>Listing wheels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Car</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wheels.each do |wheel| %>
+      <tr>
+        <td><%= wheel.car %></td>
+        <td><%= link_to 'Show', wheel %></td>
+        <td><%= link_to 'Edit', edit_wheel_path(wheel) %></td>
+        <td><%= link_to 'Destroy', wheel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wheel', new_wheel_path %>
