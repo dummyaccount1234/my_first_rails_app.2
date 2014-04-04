@@ -1,4 +1,6 @@
 MyFirstRailsApp::Application.routes.draw do
+  resources :cars
+
   resources :wheels
 
   resources :windows do

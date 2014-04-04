@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Top speed:</strong>
+  <%= @car.top_speed %>
+</p>
+
+<p>
+  <strong>Window:</strong>
+  <%= @car.window %>
+</p>
+
+<%= link_to 'Edit', edit_car_path(@car) %> |
+<%= link_to 'Back', cars_path %>
